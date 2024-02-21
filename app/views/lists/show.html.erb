@@ -1,0 +1,21 @@
+
+<div class="d-flex justify-content-between align-items-center border-bottom">
+  <div>
+    <h1> <%= @list.name %> </h1>
+  </div>
+  <div>
+    <h2> Movie list </h2>
+    <% @movies.each do |movie| %>
+      <p><%= movie.title %></p>
+      <p><%= movie.overview %></p>
+      <p><%= movie.poster_url %></p>
+    <% end %>
+
+   <p> <%= link_to "Add a movie to a list", new_list_bookmark_path(@list) %> </p>
+
+  </div>
+  <div class="d-flex">
+    <p><%= link_to 'Back', root_path %></p>
+    <p><%= link_to "Delete", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></p>
+  </div>
+</div>
